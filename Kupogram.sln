@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupogram", "Kupogram.csproj", "{3625021B-0DD4-45FD-ACDC-FE55D39DD4CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FmodWrapper", "FmodWrapper\FmodWrapper.csproj", "{D4F5FEA8-28FE-4722-9752-070F668EE880}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3625021B-0DD4-45FD-ACDC-FE55D39DD4CF}.Debug|x64.ActiveCfg = Debug|x64
+		{3625021B-0DD4-45FD-ACDC-FE55D39DD4CF}.Debug|x64.Build.0 = Debug|x64
+		{3625021B-0DD4-45FD-ACDC-FE55D39DD4CF}.Release|x64.ActiveCfg = Release|x64
+		{3625021B-0DD4-45FD-ACDC-FE55D39DD4CF}.Release|x64.Build.0 = Release|x64
+		{D4F5FEA8-28FE-4722-9752-070F668EE880}.Debug|x64.ActiveCfg = Debug|x64
+		{D4F5FEA8-28FE-4722-9752-070F668EE880}.Debug|x64.Build.0 = Debug|x64
+		{D4F5FEA8-28FE-4722-9752-070F668EE880}.Release|x64.ActiveCfg = Release|x64
+		{D4F5FEA8-28FE-4722-9752-070F668EE880}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {018C49AD-AF66-4CDD-93B6-5C9E571B9379}
+	EndGlobalSection
+EndGlobal

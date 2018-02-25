@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3625021B-0DD4-45FD-ACDC-FE55D39DD4CF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kupogram</RootNamespace>
+    <AssemblyName>Kupogram</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WINDOWS,WIN64</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS,WIN64</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Source\Background.cs" />
+    <Compile Include="Source\Anchor.cs" />
+    <Compile Include="Source\Application.cs" />
+    <Compile Include="Source\Assets.cs" />
+    <Compile Include="Source\Audio.cs" />
+    <Compile Include="Source\Board.cs" />
+    <Compile Include="Source\BoardRenderer.cs" />
+    <Compile Include="Source\Category.cs" />
+    <Compile Include="Source\Button.cs" />
+    <Compile Include="Source\DialogCredits.cs" />
+    <Compile Include="Source\DialogBoardCats.cs" />
+    <Compile Include="Source\DialogEditorIntro.cs" />
+    <Compile Include="Source\DialogImportImage.cs" />
+    <Compile Include="Source\NumericUpDown.cs" />
+    <Compile Include="Source\CheckBox.cs" />
+    <Compile Include="Source\Control.cs" />
+    <Compile Include="Source\DialogBoardMeta.cs" />
+    <Compile Include="Source\DialogConfirm.cs" />
+    <Compile Include="Source\DialogPauseMenu.cs" />
+    <Compile Include="Source\DialogOptions.cs" />
+    <Compile Include="Source\DialogPickBoard.cs" />
+    <Compile Include="Source\Extensions.cs" />
+    <Compile Include="Source\FormGame.cs" />
+    <Compile Include="Source\FormMainMenu.cs" />
+    <Compile Include="Source\DialogBase.cs" />
+    <Compile Include="Source\ImageButton.cs" />
+    <Compile Include="Source\Input.cs" />
+    <Compile Include="Source\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\PlayArchive.cs" />
+    <Compile Include="Source\TextButton.cs" />
+    <Compile Include="Source\TextField.cs" />
+    <Compile Include="Source\TextLabel.cs" />
+    <Compile Include="Source\Tooltip.cs" />
+    <Compile Include="Source\UndoRedoStack.cs" />
+    <Compile Include="Source\UserConfig.cs" />
+    <Compile Include="Source\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>C:\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="FmodWrapper\FmodWrapper.csproj">
+      <Project>{d4f5fea8-28fe-4722-9752-070f668ee880}</Project>
+      <Name>FmodWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rmdir /S /Q "$(TargetDir)Puzzles"
+xcopy "$(SolutionDir)Puzzles\*" "$(TargetDir)Puzzles\*" /Y /Q /E
+mkdir "$(TargetDir)Content\Audio\"
+copy /Y "$(SolutionDir)Audio\Build\Desktop\*" "$(TargetDir)Content\Audio\"
+copy /Y "$(SolutionDir)FmodWrapper\lib\*.dll" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
